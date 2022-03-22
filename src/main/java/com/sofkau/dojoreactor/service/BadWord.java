@@ -19,22 +19,16 @@ public class BadWord {
         List<String> wordPhrase = List.of(phrase.split(" "));
 
 
-        /*Flux<String> fx = Flux.fromIterable(badWords)
-                .map(w -> {
-                    if (phrase.contains(w)) {
-                        phrase.replace(w, "****");
-                    }
-                    return w;
-                });*/
-
-
          Mono<String> mono = Flux.fromIterable(wordPhrase)
                 .map(w -> (badWords.contains(w)) ? "****" : w)
                 .collect(joining(" "));
 
+
+        Mono<String> mono2 = Flux.fromIterable(wordPhrase)
+
+                .collect(joining(" "));
         return mono;
-
-
+        
     }
 
 }

@@ -49,7 +49,7 @@ public class DojoReactorApplication implements CommandLineRunner {
 
 		//EJERCICIO 2
 		System.out.println("\n Ejercicio 2: ");
-		String frase = "Hola, su merced es una puta";
+		String frase = "Hola, su merced es una puta de verdad. Tambien, es una mierda de persona, pero lo quiero marica";
 		BadWord badWord = new BadWord();
 		badWord.correctorWords(frase).subscribe(w -> log.info(w.toString()));
 	}
