@@ -1,5 +1,6 @@
 package com.sofkau.dojoreactor;
 
+import com.sofkau.dojoreactor.service.BadWord;
 import com.sofkau.dojoreactor.service.Email;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,5 +42,9 @@ public class DojoReactorApplication implements CommandLineRunner {
 		email.countEmailsByDomain("@outlook.com").subscribe(c -> log.info("Cantidad de emails outlook: " + c));
 		email.countEmailsByDomain("@sofka.com").subscribe(c -> log.info("Cantidad de emails sofka: " + c));
 
+		//EJERCICIO 2
+		String frase = "Hola, su merced es una puta";
+		BadWord badWord = new BadWord();
+		badWord.correctorWords(frase).subscribe(w -> log.info(w.toString()));
 	}
 }

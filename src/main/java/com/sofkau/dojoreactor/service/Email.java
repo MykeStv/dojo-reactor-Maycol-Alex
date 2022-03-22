@@ -44,7 +44,8 @@ public class Email {
         //Function<Flux<String>, Flux<String>> mapData;
 
         return Flux.fromIterable(getEmails())
-                .map(e -> (e.contains("@") && (e.contains("gmail.com") || e.contains("hotmail.com") || e.contains("sofka.com") || e.contains("outlook.com"))) ? e : e + ": no valid");
+                .map(e -> (e.contains("@") && (e.contains("gmail.com") || e.contains("hotmail.com") || e.contains("sofka.com") || e.contains("outlook.com"))) ? e : e + " : NoValid")
+                .filter(e -> !e.contains("NoValid"));
     }
 
     //COUNT EMAILS
