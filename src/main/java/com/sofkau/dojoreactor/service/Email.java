@@ -52,4 +52,12 @@ public class Email {
         return Flux.fromIterable(getEmails())
                 .count();
     }
+
+    //CANTIDAD DE CORREOS SEGUN SU DOMINIO
+    public Mono<Long> countEmailsByDomain(String domain) {
+        return Flux.fromIterable(getEmails())
+                .filter(e -> e.contains(domain))
+                .count();
+    }
+
 }

@@ -35,5 +35,11 @@ public class DojoReactorApplication implements CommandLineRunner {
 		//CUENTA LOS CORREOS
 		email.countEmails().subscribe(c -> log.info("Cantidad de emails: " + c));
 
+		//CUENTA LOS CORREOS SEGUN DOMINIO
+		email.countEmailsByDomain("@gmail.com").subscribe(c -> log.info("Cantidad de emails gmail: " + c));
+		email.countEmailsByDomain("@hotmail.com").subscribe(c -> log.info("Cantidad de emails hotmail: " + c));
+		email.countEmailsByDomain("@outlook.com").subscribe(c -> log.info("Cantidad de emails outlook: " + c));
+		email.countEmailsByDomain("@sofka.com").subscribe(c -> log.info("Cantidad de emails sofka: " + c));
+
 	}
 }
