@@ -32,5 +32,8 @@ public class DojoReactorApplication implements CommandLineRunner {
 		//CORREOS VALIDOS
 		email.getEmailsValids().subscribe(e -> log.info("Emails validados: " + e));
 
+		//CUENTA LOS CORREOS
+		email.countEmails().subscribe(c -> log.info("Cantidad de emails: " + c));
+
 	}
 }

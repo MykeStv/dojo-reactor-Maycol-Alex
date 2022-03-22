@@ -45,7 +45,11 @@ public class Email {
 
         return Flux.fromIterable(getEmails())
                 .map(e -> (e.contains("@") && (e.contains("gmail.com") || e.contains("hotmail.com") || e.contains("sofka.com") || e.contains("outlook.com"))) ? e : e + ": no valid");
-
     }
 
+    //COUNT EMAILS
+    public Mono<Long> countEmails() {
+        return Flux.fromIterable(getEmails())
+                .count();
+    }
 }
