@@ -33,4 +33,12 @@ public class Email {
                 .count();
     }
 
+    //CORREOS POR DOMINIO
+    public Flux<String> getEmailsByDomain(String domain) {
+        return Flux.fromIterable(getEmails())
+                .filter(e -> e.contains(domain));
+    }
+
+    //
+
 }

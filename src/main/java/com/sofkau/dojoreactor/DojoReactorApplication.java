@@ -22,9 +22,11 @@ public class DojoReactorApplication implements CommandLineRunner {
 		Email email = new Email();
 
 		//CORREOS NO REPETIDOS
-		email.getEmailsNoRepeated().subscribe(e -> log.info("Emails no repetido: " + e));
-		email.countEmailsRepeated().subscribe(e -> log.info("Cantidad de emails no repetidos: " + e));
+		//email.getEmailsNoRepeated().subscribe(e -> log.info("Emails no repetido: " + e));
+		//email.countEmailsRepeated().subscribe(e -> log.info("Cantidad de emails no repetidos: " + e));
 
-		
+		//CORREO QUE CONTIENEN DOMINIOS
+		String domain = "gmail";
+		email.getEmailsByDomain(domain).subscribe(e -> log.info("Emails con " + domain+ ": " + e));
 	}
 }
