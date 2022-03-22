@@ -8,12 +8,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 
+import static java.util.stream.Collectors.joining;
+
 public class BadWord {
 
     private List<String> badWords = List.of("puta", "gonorrea", "marica", "mierda", "imbecil",
             "malparido", "pirobo", "huevon", "cacorro", "cagar");
 
-    public Mono<List<String>> correctorWords(String phrase) {
+    public Mono<String> correctorWords(String phrase) {
         List<String> wordPhrase = List.of(phrase.split(" "));
 
 
@@ -26,9 +28,9 @@ public class BadWord {
                 });*/
 
 
-         Mono<List<String>> mono = Flux.fromIterable(wordPhrase)
+         Mono<String> mono = Flux.fromIterable(wordPhrase)
                 .map(w -> (badWords.contains(w)) ? "****" : w)
-                .collectList();
+                .collect(joining(" "));
 
         return mono;
 
