@@ -26,7 +26,11 @@ public class DojoReactorApplication implements CommandLineRunner {
 		//email.countEmailsRepeated().subscribe(e -> log.info("Cantidad de emails no repetidos: " + e));
 
 		//CORREO QUE CONTIENEN DOMINIOS
-		String domain = "gmail";
-		email.getEmailsByDomain(domain).subscribe(e -> log.info("Emails con " + domain+ ": " + e));
+		/*String domain = "gmail";
+		email.getEmailsByDomain(domain).subscribe(e -> log.info("Emails con " + domain+ ": " + e));*/
+
+		//CORREOS VALIDOS
+		email.getEmailsValids().subscribe(e -> log.info("Emails validados: " + e));
+
 	}
 }
